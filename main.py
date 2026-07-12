@@ -21,9 +21,15 @@ def run_web_server():
 BOT_TOKEN = '8977626671:AAEGQ3GyRA-AFL2k1HBd63Vgd0m5WQ1bcY0'  # توكن البوت الخاص بك
 CHANNELS_ID = '@RCOEt'                 # يوزر قناتك
 ADMIN_ID = 7459127293                   # معرف حسابك (ID)
-GROQ_API_KEY = "Gsk_t0MBk6kcG1KP5MVPDbRIWGdyb3FY4euPvAtrlma90CyhYZ83c1qP"  # مفتاح Groq المفعل الخاص بك
+GROQ_API_KEY = "Gsk_t0MBk6kcG1KP5MVPDbRIWGdyb3FY4euPvAtrlma90CyhYZ83c1qP"  # مفتاح Groq الخاص بك
 
 bot = telebot.TeleBot(BOT_TOKEN)
+
+# 🔥 الحل النهائي لمشكلة خطأ 409 (Conflict): إجبار تليجرام على تصفير أي اتصال قديم معلق
+try:
+    bot.remove_webhook()
+except Exception as e:
+    print(f"Webhook removal skip: {e}")
 
 # ================= إعداد قاعدة البيانات الدائمة =================
 def init_db():
